@@ -1,0 +1,47 @@
+.UserProfileCard {
+  max-width: 350px;
+  background-color: #e5c79d;
+  border: 2px solid #2c3e50;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 20px;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.UserCard-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+}
+
+.UserCard-name {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 8px;
+}
+
+.UserCard-details {
+  text-align: left;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+.UserCard:hover {
+    transform: scale(1.02);
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 90px;
+}
+
+body {
+background-color: #ecd3c6;
+margin-left: 13px;
+}
