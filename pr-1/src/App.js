@@ -7,6 +7,7 @@ import resha from "./assests/images-4.jpg"
 import vishal from "./assests/images-5.jpg"
 import khushal from "./assests/images-6.jpg"
 
+   
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
         photo={khushal}
       />
 
+
        <UserProfileCard 
         UserId="9084"
         name="Henil Rakholiya"
@@ -90,9 +92,6 @@ function App() {
         Nationality="Indian"
         photo={pruthvi}
       />
-
-
-      
     </div>
   );
 }
