@@ -1,0 +1,21 @@
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.calc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+
+
+
+
