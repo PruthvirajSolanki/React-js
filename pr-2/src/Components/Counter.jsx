@@ -6,7 +6,7 @@ const Counter = () => {
 
   const handleIncrement = () => {
     setCount(prev => prev + 1);
-    console.log('Increment clicked');
+    console.log('Increment clicked');                                                                           
   };
 
   const handleDecrement = () => {

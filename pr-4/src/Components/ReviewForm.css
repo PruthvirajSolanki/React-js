@@ -1,0 +1,40 @@
+.review-form {
+  background-color: rgb(225, 163, 88);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.review-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.review-form button {
+  padding: 10px;
+  background-color: #458038;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.review-form button:hover {
+  background-color: #000000;
+}
+

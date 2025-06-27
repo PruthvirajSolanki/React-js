@@ -1,0 +1,54 @@
+html,
+body,
+#root {
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+  min-height: 100vh;
+  padding: 20px;
+  background-color: rgb(214, 197, 161);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reviews-list {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.review-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 8px solid #ae5dbb;
+  border-radius: 6px;
+}
+
+.review-card h3 {
+  margin: 0 0 5px 0;
+}
+
+.stars {
+  color: #ffc107;
+  font-size: 18px;
+} 
+
+
+
+
