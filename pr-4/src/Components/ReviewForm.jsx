@@ -17,7 +17,7 @@ const handleSubmit = (e) => {
   if (!text) {
     alert('PLEASE! WRITE YOUR REVIEW👍');
     return;
-  }
+    }
 
   if (!rating) {
     alert('PLEASE SELECT YOUR RATING😄');
@@ -64,5 +64,3 @@ const handleSubmit = (e) => {
 };
 
 export default ReviewForm;
-
-

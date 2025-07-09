@@ -18,7 +18,7 @@ const Counter = () => {
     console.log('Decrement clicked');
   };
 
-  const handleReset = () => {
+  const handleReset = () => { 
     setCount(0);
     console.log('Reset clicked');
   };

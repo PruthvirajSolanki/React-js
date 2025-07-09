@@ -1,0 +1,54 @@
+.reservation-section {
+ background: url('../assets/images/reservation.jpg'); 
+  background-size: cover;
+  padding: 60px 0;
+}
+
+.reservation-title {
+  font-size: 70px;
+  font-weight: 650;
+  line-height: 58px;
+  letter-spacing: 2px;
+  color: #1d1d1d;
+}
+
+.reservation-subtitle {
+  font-size: 30px;
+  color: #f58634;
+  font-family: 'Pacifico', cursive;
+}
+
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea {
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  padding: 12px;
+  color: #999999 !important;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.reservation-form input:hover,
+.reservation-form select:hover,
+.reservation-form textarea:hover {
+  border-color: orange;
+}
+
+.book-button {
+  background-color: #f58634;
+  border: 1px solid transparent;
+  padding: 14px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 40px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.book-button:hover {
+  border-color: orange;
+  background: transparent;
+  color: #fd9d3e;
+}
+
