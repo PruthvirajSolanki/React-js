@@ -14,7 +14,7 @@ function App() {
     <Reservation />
     <Footer />
     </>
-  )
+  ) 
 }
 
 export default App

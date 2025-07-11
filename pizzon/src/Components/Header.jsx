@@ -31,7 +31,7 @@ const Header = () => {
             
             {/* <Nav.Link href="#menu" className="nav-link" style={{ color: 'white' , fontSize:'16px'}}>Menu</Nav.Link> */}
 
-             <NavDropdown title="Blog" id="blog-dropdown" className="nav-link-custom dropdown-custom">
+            <NavDropdown title="Blog" id="blog-dropdown" className="nav-link-custom dropdown-custom">
             <NavDropdown.Item href="#blog-left">Blog Leftside</NavDropdown.Item>
             <NavDropdown.Item href="#blog-right">Blog Rightside</NavDropdown.Item>
             <NavDropdown.Item href="#blog-detail">Blog Detail</NavDropdown.Item>
@@ -45,7 +45,6 @@ const Header = () => {
             <NavDropdown.Item href="#404">404</NavDropdown.Item>
           </NavDropdown>
           </Nav>
-      
 
         <div className="d-flex align-items-center gap-3">
           <div className="d-flex align-items-center text-white phone-icon-hover">
@@ -71,3 +70,4 @@ const Header = () => {
 };
 
 export default Header;
+
