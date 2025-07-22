@@ -1,0 +1,12 @@
+.card-text {
+  color: #757575;
+} 
+
+.badge-warning,
+.bg-warning {
+  color: #333 !important;
+  background-color: #ffe500 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+

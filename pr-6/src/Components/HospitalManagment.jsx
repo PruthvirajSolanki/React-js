@@ -11,7 +11,7 @@ const HospitalManagment = () => {
     registrationTime: "",
     firstName: "",
     lastName: "",
-    street1: "",
+    street1: "", 
     city: "",
     region: "",
     postalCode: "",
@@ -23,11 +23,11 @@ const HospitalManagment = () => {
   const [editIndex, setEditIndex] = useState(null);
   const [errors, setErrors] = useState({});
 
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
-
-    // Clear the error for this field as user types
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
     }
