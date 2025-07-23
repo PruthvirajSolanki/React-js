@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getStorageData, setStorageData } from "../Services/Service";
-import { Badge, Button, Card, Container } from "react-bootstrap";
-import { useNavigate } from "react-router";
+import { Badge, Button, Card, Container ,  Form , Row , Col , Pagination} from "react-bootstrap";
+import { useNavigate , useLocation} from "react-router";
 import "./Home.css";
 
 const Home = () => {
