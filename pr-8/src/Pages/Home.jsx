@@ -67,7 +67,7 @@ const Home = ({ searchTerm }) => {
 
 
   const filteredProducts = productData.filter((product) =>
-    product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    product.productName.includes(searchTerm)
   );
 
 
