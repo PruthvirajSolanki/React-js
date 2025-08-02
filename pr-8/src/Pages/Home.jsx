@@ -43,31 +43,32 @@ const Home = ({ searchTerm }) => {
       }
 
       return order === "asc"
+
         ? aVal.toString().localeCompare(bVal.toString())
         : bVal.toString().localeCompare(aVal.toString());
     });
   };
 
   useEffect(() => {
-    let data = getStorageData();
+    let data = getStorageData(); 
     if (sortField) {
       data = sortData(data, sortField, sortOrder);
     }
     setProductData(data);
-  }, [sortField, sortOrder]);
+  }, [sortField, sortOrder]);   
 
   const handleSortFieldChange = (e) => {
     setSortField(e.target.value);
-    setCurrentPage(1);
+    setCurrentPage(1);``
   };
 
-  const handleSortOrderToggle = () => {
+  const handleSortOrderToggle = () => { 
     setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
 
   const filteredProducts = productData.filter((product) =>
-    product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+    product.productName.includes(searchTerm)
   );
 
 
@@ -104,15 +105,16 @@ const Home = ({ searchTerm }) => {
           </Form.Select>
         </Col>
         <Col xs="auto">
-          <Button variant="outline-dark" onClick={handleSortOrderToggle}>
+          <Button variant="outline-dark" onClick={handleSortOrderToggle}> 
             {sortOrder === "asc" ? "🔝 Ascending" : "⏬ Descending"}
           </Button>
         </Col>
-      </Row>
+      </Row> 
 
       <div className="row g-4 justify-content-center">
         {paginatedData.length > 0 ? (
           paginatedData.map((product) => (
+            
             <div
               className="col-12 col-sm-6 col-md-4 col-lg-3"
               key={product.id}
@@ -121,7 +123,7 @@ const Home = ({ searchTerm }) => {
                 className="h-100 shadow-sm border-0"
                 style={{ borderRadius: "1rem", transition: "transform 0.2s" }}
               >
-                <Card.Img
+                <Card.Img  
                   variant="top"
                   src={product.image}
                   style={{
@@ -130,7 +132,7 @@ const Home = ({ searchTerm }) => {
                     borderTopLeftRadius: "1rem",
                     borderTopRightRadius: "1rem",
                     backgroundColor: "#fafafa",
-                    padding: 20,
+                    padding: 20,  
                   }}
                 />
                 <Card.Body className="d-flex flex-column p-3">

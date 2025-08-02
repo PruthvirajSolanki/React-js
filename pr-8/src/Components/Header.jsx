@@ -35,7 +35,7 @@ const FlipkartHeader = ({ onSearch }) => {
         <Container style={{ maxWidth: "1600px" }}>
     
           <Link to="/" className="d-flex align-items-start text-decoration-none">
-            <img src={flipkartlogo} alt="Flipkart" height={40} width={160} />
+            <img src={flipkartlogo} alt="Flipkart" height={30} width={134} />
           </Link>
 
 

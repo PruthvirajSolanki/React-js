@@ -38,7 +38,7 @@ const Header = () => {
           </NavDropdown>
             <Nav.Link href="#reservation" className="nav-link" style={{ color: 'white' , fontSize:'16px'}}>Reservation</Nav.Link>
             
-             <NavDropdown title="Pages" id="pages-dropdown" className="nav-link-custom dropdown-custom">
+             <NavDropdown title="Pages" id="pages-dropdown" className="nav-link-custom dropdown-custom"> 
             <NavDropdown.Item href="#about-us">About Us</NavDropdown.Item>
             <NavDropdown.Item href="#contact">Contact</NavDropdown.Item>
             <NavDropdown.Item href="#shop-grid">Shop Grid</NavDropdown.Item>
