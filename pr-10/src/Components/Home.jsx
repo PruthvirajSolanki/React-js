@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  deleteProduct,
+  deleteProductAsync,
   getAllProductAsync,
 } from "../Services/Actions/productAction";
 import {
@@ -13,21 +13,24 @@ import {
   Col,
   Spinner,
   Pagination,
-  Form, 
+  Form,
 } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
 const Home = ({ searchTerm = "" }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { products = [], loading = false } = useSelector(
-    (state) => state.productReducer || {}
+
+
+  const { products = [], isLoading: loading } = useSelector(
+    (state) => state.product || {}
   );
 
   const [currentPage, setCurrentPage] = useState(1);
   const [sortField, setSortField] = useState("title");
   const [sortOrder, setSortOrder] = useState("asc");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -35,10 +38,10 @@ const Home = ({ searchTerm = "" }) => {
   }, [dispatch]);
 
   const handleEdit = (id) => navigate(`/edit-product/${id}`);
-  const handleDelete = (id) => dispatch(deleteProduct(id));
+  const handleDelete = (id) => dispatch(deleteProductAsync(id));
 
- 
-  const categories = ["All", ...new Set(products.map((p) => p.category))];
+
+  const categories = ["All", ...new Set(products.map((p) => p.category).filter(Boolean))];
 
 
   const filteredProducts = products.filter((prod) => {
@@ -52,8 +55,19 @@ const Home = ({ searchTerm = "" }) => {
 
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
-    const valA = a[sortField]?.toString().toLowerCase();
-    const valB = b[sortField]?.toString().toLowerCase();
+    let valA = a[sortField];
+    let valB = b[sortField];
+
+
+    if (sortField === "price" || sortField === "unit") {
+      valA = parseFloat(valA) || 0;
+      valB = parseFloat(valB) || 0;
+    } else {
+      // Alphabetical for title
+      valA = valA?.toString().toLowerCase() || "";
+      valB = valB?.toString().toLowerCase() || "";
+    }
+
     if (valA < valB) return sortOrder === "asc" ? -1 : 1;
     if (valA > valB) return sortOrder === "asc" ? 1 : -1;
     return 0;
@@ -67,23 +81,11 @@ const Home = ({ searchTerm = "" }) => {
     startIndex + itemsPerPage
   );
 
-  const paginationItems = [];
-  for (let page = 1; page <= totalPages; page++) {
-    paginationItems.push(
-      <Pagination.Item
-        key={page}
-        active={page === currentPage}
-        onClick={() => setCurrentPage(page)}
-      >
-        {page}
-      </Pagination.Item>
-    );
-  }
-
   return (
     <Container className="mt-4">
       <h2 className="text-success text-center fw-bold mb-4">🛒 Blinkit Cart</h2>
 
+      {/* Filters */}
       <Row className="mb-3">
         <Col md={4} xs={12}>
           <Form.Group>
@@ -92,7 +94,7 @@ const Home = ({ searchTerm = "" }) => {
               value={selectedCategory}
               onChange={(e) => {
                 setSelectedCategory(e.target.value);
-                setCurrentPage(1); 
+                setCurrentPage(1);
               }}
             >
               {categories.map((cat, idx) => (
@@ -111,7 +113,7 @@ const Home = ({ searchTerm = "" }) => {
               value={sortField}
               onChange={(e) => setSortField(e.target.value)}
             >
-              <option value="productName">Product Name</option>
+              <option value="title">Product Name</option>
               <option value="price">Price</option>
               <option value="unit">Unit</option>
             </Form.Select>
@@ -125,13 +127,14 @@ const Home = ({ searchTerm = "" }) => {
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
             >
-              <option value="asc">🔝Ascending</option>
-              <option value="desc">⏬Descending</option>
+              <option value="asc">🔝 Ascending</option>
+              <option value="desc">⏬ Descending</option>
             </Form.Select>
           </Form.Group>
         </Col>
       </Row>
 
+      {/* Product List */}
       {loading ? (
         <div className="text-center">
           <Spinner animation="border" />
@@ -194,9 +197,20 @@ const Home = ({ searchTerm = "" }) => {
             ))}
           </Row>
 
-          {sortedProducts.length > 5 && totalPages > 1 && (
+         
+          {totalPages > 1 && (
             <div className="d-flex justify-content-center mt-4">
-              <Pagination>{paginationItems}</Pagination>
+              <Pagination>
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <Pagination.Item
+                    key={i + 1}
+                    active={i + 1 === currentPage}
+                    onClick={() => setCurrentPage(i + 1)}
+                  >
+                    {i + 1}
+                  </Pagination.Item>
+                ))}
+              </Pagination>
             </div>
           )}
         </>

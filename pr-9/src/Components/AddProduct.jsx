@@ -33,7 +33,8 @@ const AddProduct = () => {
     e.preventDefault();
     const id = generateUniqueId({ length: 6, useLetters: false });
     inputForm.id = id;
-    dispatch(addProduct(inputForm));
+    // dispatch(addProduct(inputForm));
+    dispatch(addProduct(formData));
     navigate("/");
   };
 

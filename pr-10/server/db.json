@@ -1,0 +1,67 @@
+{
+  "products": [
+    {
+      "id": "280935",
+      "title": "Fruit & Vegetables",
+      "desc": "Tomato can be used in diverse ways, including raw in salads or in slices, stewed, incorporated into a wide variety of dishes, or processed into ketchup or tomato soup.",
+      "unit": "500 gm",
+      "price": "41",
+      "category": "fruits",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/4cd11feb-f6df-4830-9fa1-a5f39f08fc3f.png"
+    },
+    {
+      "id": "760906",
+      "title": "Pampers Daiper",
+      "desc": "Pampers Premium Care Diaper (Pants, L, 9-14 kg)",
+      "unit": "44 pcs",
+      "price": "1010",
+      "category": "baby",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/3f984f92-51eb-4ef5-b05f-c2b71642e0c8.png"
+    },
+    {
+      "id": "962187",
+      "title": "Soap",
+      "desc": "Dettol Original Bathing Bar Soap with 12 Hrs Germ Protection",
+      "unit": "4 * 100 g",
+      "price": "160",
+      "category": "personal",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/514a00ed-d6b8-496c-8985-c6aa5855a16b.png"
+    },
+    {
+      "id": "769166",
+      "title": "Atta ",
+      "desc": "Aashirvaad Shudh Chakki Atta (100% Atta, 0% Maida) (5 kg)",
+      "unit": "5 kg",
+      "price": "255",
+      "category": "atta",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/eb35f3ed-7afa-47ed-bef1-db493ff82f0a.png"
+    },
+    {
+      "id": "191100",
+      "title": "Chocolate",
+      "desc": "Nestle KitKat 4 Fingers Choco Coated Wafer Chocolate",
+      "price": "30",
+      "category": "sweet",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/017dbdc5-472e-44b3-9b08-234d8e756d7e.png",
+      "unit": "38.5 g"
+    },
+    {
+      "id": "842575",
+      "title": "Sauces",
+      "desc": "Kissan Fresh Tomato Ketchup",
+      "unit": "850 g",
+      "price": "100",
+      "category": "sauces",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/ae5c2abf-e3c9-4cbc-9cc1-f10fbf709a09.png"
+    },
+    {
+      "id": "620066",
+      "title": "Tea",
+      "desc": "Jivraj 9 CTC Leaf Tea",
+      "unit": "1 kg",
+      "price": "550",
+      "category": "tea",
+      "image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=450/da/cms-assets/cms/product/2c64908a-f6c1-44e5-926c-a705cc80caa2.png"
+    }
+  ]
+}
