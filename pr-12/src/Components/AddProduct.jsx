@@ -11,7 +11,7 @@ const AddProduct = () => {
 
   const initialState = {
     id: "",
-    title: "", 
+    title: "", // ✅ changed to match Home.jsx and API
     desc: "",
     unit: "",
     price: "",

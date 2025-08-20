@@ -9,7 +9,7 @@ const EditProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
+  // Get product and loading state from reducer
   const { product, isLoading } = useSelector((state) => state.product || {});
 
   const initialState = {
