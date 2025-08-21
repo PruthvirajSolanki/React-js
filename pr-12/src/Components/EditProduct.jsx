@@ -159,7 +159,7 @@ const EditProduct = () => {
         <Form.Group className="mb-4">
           <Form.Label className="fw-semibold">Image URL</Form.Label>
           <Form.Control
-            type="text"
+            type="file"
             placeholder="Enter image URL"
             name="image"
             value={inputForm.image}

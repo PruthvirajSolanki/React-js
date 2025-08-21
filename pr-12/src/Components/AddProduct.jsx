@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import generateUniqueId from "generate-unique-id";
 import { useDispatch } from "react-redux";
 import { addProductAsync } from "../Services/Actions/productAction";
+import { uploadImage } from "../Services/imageUpload";
 
 const AddProduct = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const AddProduct = () => {
 
   const initialState = {
     id: "",
-    title: "", // ✅ changed to match Home.jsx and API
+    title: "", 
     desc: "",
     unit: "",
     price: "",
@@ -29,11 +30,20 @@ const AddProduct = () => {
     });
   };
 
+    const handleFileChanged = async (e) => {
+    let imagePath = await uploadImage(e.target.files[0]);
+
+    setInputForm({
+      ...inputForm,
+      image: imagePath,
+    });
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = generateUniqueId({ length: 6, useLetters: false });
     const formData = { ...inputForm, id };
-    dispatch(addProductAsync(formData)); // ✅ send correct variable
+    dispatch(addProductAsync(formData)); 
     navigate("/");
   };
 
@@ -47,7 +57,7 @@ const AddProduct = () => {
             <Form.Control
               type="text"
               placeholder="e.g., Fruit & Vegetables"
-              name="title" // ✅ matches state key
+              name="title"  
               value={inputForm.title}
               onChange={handleChanged}
               required
@@ -125,12 +135,12 @@ const AddProduct = () => {
           <Form.Group className="mb-3">
             <Form.Label>Image URL</Form.Label>
             <Form.Control
-              type="text"
+              type="file"
               placeholder="Paste image URL here"
               name="image"
-              value={inputForm.image}
-              onChange={handleChanged}
-              required
+              // value={inputForm.image}
+              onChange={handleFileChanged}
+              // required
             />
           </Form.Group>
 
