@@ -2,39 +2,46 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row, Alert, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { signInAsync, signInWithGoogleAsync } from "../../Services/Actions/userAction";
+import {signInAsync} from "../../Services/Actions/userAction";
 
 const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, error } = useSelector((state) => state.userReducer);
-
+  const {user} = useSelector(state => state.userReducer)
   const initialState = { email: "", password: "" };
   const [inputForm, setInputForm] = useState(initialState);
   const [validationError, setValidationError] = useState("");
+  const [error, setError] = useState("");
 
   const handleChanged = (e) => {
     const { name, value } = e.target;
     setInputForm({ ...inputForm, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+
     if (inputForm.password.length < 6) {
       setValidationError("Password must be at least 6 characters long.");
       return;
     }
     setValidationError("");
-    dispatch(signInAsync(inputForm));
+
+    try {
+      dispatch(signInAsync(inputForm));
+    } catch (err) {
+      setError("Failed to connect to server.");
+    }
   };
 
-  const handleGoogleLogin = () => {
-    dispatch(signInWithGoogleAsync());
-  };
-
-  useEffect(() => {
-    if (user) navigate("/");
-  }, [user, navigate]);
+  useEffect(()=> {
+    if(!user){
+      navigate("/signin")
+    }else{
+      navigate("/");
+    }
+  }, [user]);
 
 
   return (
@@ -48,9 +55,9 @@ const SignIn = () => {
         padding: "20px"
       }}
     >
-      <Container>
+      <Container style={{ maxWidth: "500px" }}>
         <Row className="justify-content-center">
-          <Col md={6} lg={5}>
+          <Col>
             <Card className="shadow-lg p-4 rounded-4" style={{ background: "#faf8f8ff" }}>
               <h3 className="text-center mb-3 fw-bold text-success">Welcome Back!</h3>
               <p className="text-center text-muted mb-4">
@@ -94,17 +101,6 @@ const SignIn = () => {
                   Sign In
                 </Button>
               </Form>
-
-              <div className="text-center my-3 text-muted">OR</div>
-
-              <Button
-                variant="danger"
-                onClick={handleGoogleLogin}
-                className="w-100 py-2 fw-semibold shadow-sm"
-                style={{ borderRadius: "12px" }}
-              >
-                <i className="bi bi-google me-2"></i> Sign In with Google
-              </Button>
 
               <div className="text-center mt-3">
                 <span className="text-muted">Don't have an account? </span>

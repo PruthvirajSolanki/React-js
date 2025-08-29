@@ -1,0 +1,79 @@
+{
+  "products": [
+    {
+      "id": "f0a4"
+    },
+    {
+      "id": "754252",
+      "title": "rt",
+      "desc": "Equipped with a visor featuring an anti-fog coating, this helmet ensures clear visibility in various weather conditions. The anti-fog treatment prevents condensation buildup on the visor, ensuring unobstructed vision for the rider. Whether riding in cold or humid climates, you can rely on this helmet to provide optimal visibility and safety on the road.",
+      "unit": "200 g",
+      "price": "1",
+      "category": "fruits",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8jz1RnUddENTNhN1PEz9-NXTRYhymLsedXw&s"
+    },
+    {
+      "id": "897939",
+      "title": "gfd",
+      "desc": "Scotch-Brite Scrub Sponge with its evenly spread stain cutters and sponge backing ensures superior cleaning and makes dishwashing a breeze.",
+      "unit": "54 pcs",
+      "price": "3",
+      "category": "sweets",
+      "image": "https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/c/d/cdd8c3bDOTKE00000357_1.jpg"
+    },
+    {
+      "id": "910324",
+      "title": "Duracell",
+      "desc": "Duracell Ultra Alkaline AAA Battery\n",
+      "unit": "1 pack(4 pcs)",
+      "price": "149",
+      "category": "life",
+      "image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1000-1000,pr-true,f-auto,q-80/cms/product_variant/6d7922bb-6fb2-4c00-b3d3-cbd3a8ab8d68.jpeg"
+    },
+    {
+      "id": "372037",
+      "title": "Coriander leaves",
+      "desc": "All images are for representational purposes only. It is advised that you read the batch and manufacturing",
+      "unit": "100 g",
+      "price": "9",
+      "category": "fruits",
+      "image": "https://cdn.zeptonow.com/production/tr:w-403,ar-3000-3000,pr-true,f-auto,q-80/cms/product_variant/8d42f6c5-4e11-436d-81c4-cc24a3b28bcc.jpeg"
+    },
+    {
+      "id": "610549",
+      "title": " Fish Catching Game with Music & Lights | ",
+      "desc": "Toyshine Fish Catching Game with Music & Lights | 26 Fishes Included\n",
+      "unit": "31 pcs",
+      "price": "693",
+      "category": "toys",
+      "image": "https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,q-80/cms/product_variant/dc36d428-410c-47f5-ba8d-56a0cb9d4b08.jpeg"
+    },
+    {
+      "id": "392813",
+      "title": "Vastramay ",
+      "desc": "Vastramay Boy's Silk Blend Kurta Pyjama Set | Persian Blue & Rose Gold - 9 to 10 years",
+      "unit": "1 set",
+      "price": "891",
+      "category": "life",
+      "image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1000-1364,pr-true,f-auto,q-80/cms/product_variant/5771b8b2-3cf2-4eb8-977a-89ec6071a2f4.jpeg"
+    }
+  ],
+  "users": [
+    {
+      "id": "d9c1",
+      "email": "john@test.in",
+      "password": "123456"
+    },
+    {
+      "id": "23e6",
+      "email": "pruthvirajsolanki125@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "5c9c",
+      "email": "pruthvirajsolanki12@gmail.com",
+      "password": "123456",
+      "cpass": "123456"
+    }
+  ]
+}

@@ -33,7 +33,6 @@ const Home = ({ searchTerm = "" }) => {
 
   const itemsPerPage = 5;
 
-
   const isLoggedIn = !!localStorage.getItem("token"); 
  
 

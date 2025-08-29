@@ -2,40 +2,53 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row, Alert, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { signInAsync, signInWithGoogleAsync } from "../../Services/Actions/userAction";
+import { registerAsync } from "../../Services/Actions/userAction";
 
-const SignIn = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user, error } = useSelector((state) => state.userReducer);
 
-  const initialState = { email: "", password: "" };
+  const error = useSelector((state) => state.userReducer.error);
+  const isCreated = useSelector((state) => state.userReducer.isCreated);
+
+  const initialState = {
+    email: "",
+    password: "",
+    cpass: "",
+  };
+
   const [inputForm, setInputForm] = useState(initialState);
   const [validationError, setValidationError] = useState("");
 
   const handleChanged = (e) => {
     const { name, value } = e.target;
-    setInputForm({ ...inputForm, [name]: value });
+    setInputForm({
+      ...inputForm,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (inputForm.password.length < 6) {
       setValidationError("Password must be at least 6 characters long.");
       return;
     }
-    setValidationError("");
-    dispatch(signInAsync(inputForm));
-  };
+    if (inputForm.password !== inputForm.cpass) {
+      setValidationError("Passwords do not match.");
+      return;
+    }
 
-  const handleGoogleLogin = () => {
-    dispatch(signInWithGoogleAsync());
+    setValidationError("");
+    dispatch(registerAsync(inputForm));
   };
 
   useEffect(() => {
-    if (user) navigate("/");
-  }, [user, navigate]);
-
+    if (isCreated) {
+      navigate("/signIn");
+    }
+  }, [isCreated, navigate]);
 
   return (
     <div 
@@ -46,16 +59,15 @@ const SignIn = () => {
         alignItems: "center",
         justifyContent: "center",
         padding: "20px"
-      }}
-    >
-      <Container>
-        <Row className="justify-content-center">
-          <Col md={6} lg={5}>
-            <Card className="shadow-lg p-4 rounded-4" style={{ background: "#faf8f8ff" }}>
-              <h3 className="text-center mb-3 fw-bold text-success">Welcome Back!</h3>
-              <p className="text-center text-muted mb-4">
-                Sign in to continue to <strong>Blinkit Cart</strong>
-              </p>
+      }}>
+    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+      <Row className="w-100">
+        <Col md={{ span: 6, offset: 3 }}>
+          <Card className="p-4 shadow-lg rounded-4 border-0">
+            <Card.Body>
+              <h2 className="text-center mb-4" style={{ fontWeight: "bold", color: "#000000ff" }}>
+                Create Your Account
+              </h2>
 
               {error && <Alert variant="danger">{error}</Alert>}
               {validationError && <Alert variant="warning">{validationError}</Alert>}
@@ -85,39 +97,41 @@ const SignIn = () => {
                   />
                 </Form.Group>
 
+                <Form.Group className="mb-4" controlId="formConfirmPassword">
+                  <Form.Label className="fw-semibold">Confirm Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Re-enter password"
+                    name="cpass"
+                    value={inputForm.cpass}
+                    onChange={handleChanged}
+                    required
+                  />
+                </Form.Group>
+
                 <Button
-                  variant="primary"
+                  variant="info"
                   type="submit"
-                  className="w-100 py-2 fw-semibold shadow-sm"
-                  style={{ borderRadius: "12px" }}
+                  className="w-100 py-2 fw-bold"
+                  style={{ fontSize: "1.1rem", borderRadius: "8px" }}
                 >
-                  Sign In
+                  Sign Up
                 </Button>
               </Form>
 
-              <div className="text-center my-3 text-muted">OR</div>
-
-              <Button
-                variant="danger"
-                onClick={handleGoogleLogin}
-                className="w-100 py-2 fw-semibold shadow-sm"
-                style={{ borderRadius: "12px" }}
-              >
-                <i className="bi bi-google me-2"></i> Sign In with Google
-              </Button>
-
               <div className="text-center mt-3">
-                <span className="text-muted">Don't have an account? </span>
-                <Link to="/signup" className="fw-bold text-decoration-none">
-                  Sign Up
+                <span>Already have an account? </span>
+                <Link to="/signIn" className="fw-semibold" style={{ color: "#007bff" }}>
+                  Sign In
                 </Link>
               </div>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;
